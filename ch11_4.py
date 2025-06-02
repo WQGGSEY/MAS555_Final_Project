@@ -380,7 +380,6 @@ def main():
         ess = calculate_ess(param_series)
         ess_dict[param_key_name] = ess
         print(f"{param_latex_label} ESS: {ess:.2f}")
-    print("="*50)
     ####################### Problem (e) ######################
     # find posterior beta_j for each j
     # use only 10th samples after 10,000 iterations
@@ -505,6 +504,20 @@ def main():
             plt.savefig(full_save_path, dpi=300)
             
         plt.close(fig)
+    # 95% Credible Intervals for each parameter
+    print("="*80)
+    print("\n95% Credible Intervals for each parameter:")
+    for param_info in params_for_f_plots:
+        posterior_samples = param_info["posterior"]
+        lower_bound = np.percentile(posterior_samples, 2.5)
+        upper_bound = np.percentile(posterior_samples, 97.5)
+        print(f"{param_info['label']} 95% Credible Interval: [{lower_bound:.4f}, {upper_bound:.4f}]")
+    print("="*80)
+    print("Add-hoc beta dictionary:")
+    print(ad_hoc_beta_dict)
+    print("=" * 80)
+    print("Posterior beta dictionary:")
+    print(beta_dict)
 
 
 

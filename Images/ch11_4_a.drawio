@@ -1,0 +1,47 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/27.0.9 Chrome/134.0.6998.205 Electron/35.4.0 Safari/537.36" border="50" scale="3" compressed="false" locked="false" version="27.0.9">
+  <diagram name="Blank" id="YmL12bMKpDGza6XwsDPr">
+    <mxGraphModel dx="1776" dy="752" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="1" shadow="0">
+      <root>
+        <mxCell id="X5NqExCQtvZxIxQ7pmgY-0" />
+        <mxCell id="1" parent="X5NqExCQtvZxIxQ7pmgY-0" />
+        <mxCell id="kh_rzeF2OJM3ypCZ-48r-5" value="$$\boldsymbol{\theta}$$" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="kh_rzeF2OJM3ypCZ-48r-1" target="kh_rzeF2OJM3ypCZ-48r-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="kh_rzeF2OJM3ypCZ-48r-1" value="$$p(\boldsymbol{\theta|\alpha_{\boldsymbol{\theta}}})$$" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-586" y="294" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="kh_rzeF2OJM3ypCZ-48r-6" value="$$\Sigma$$" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="kh_rzeF2OJM3ypCZ-48r-2" target="kh_rzeF2OJM3ypCZ-48r-4">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="kh_rzeF2OJM3ypCZ-48r-2" value="$$p(\Sigma|\alpha_{\Sigma})$$" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-369" y="294" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="kh_rzeF2OJM3ypCZ-48r-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="kh_rzeF2OJM3ypCZ-48r-4" target="kh_rzeF2OJM3ypCZ-48r-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="kh_rzeF2OJM3ypCZ-48r-4" value="$$\beta_j\overset{i.i.d}{\sim}\mathcal{MVN}(\boldsymbol{\theta},\Sigma)$$&lt;div&gt;$$\beta_j\in\mathbb R^2$$&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-490" y="432" width="143" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="kh_rzeF2OJM3ypCZ-48r-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="kh_rzeF2OJM3ypCZ-48r-8" target="kh_rzeF2OJM3ypCZ-48r-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="kh_rzeF2OJM3ypCZ-48r-8" value="$$x_{i,j}$$&lt;div&gt;(Observed)&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-272" y="432" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="kh_rzeF2OJM3ypCZ-48r-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="kh_rzeF2OJM3ypCZ-48r-10">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-418" y="670" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="kh_rzeF2OJM3ypCZ-48r-10" value="$$\gamma_{i,j}=[1,x_{i,j}]^\top \beta_j$$" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-478" y="549" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="kh_rzeF2OJM3ypCZ-48r-14" value="$$y_{i,j}\sim Bernoulli(\frac{e^{\gamma_{i,j}}}{1+e^{\gamma_{i,j}}})$$&lt;div&gt;(Observed)&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-533.5" y="666" width="230" height="73" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

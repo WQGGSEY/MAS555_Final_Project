@@ -271,7 +271,7 @@ def plot_variables(sample_dict: dict):
         ax.plot(iterations, param_series, linewidth=1.2, alpha=0.8)
         
         ax.set_title(f"MCMC Trace Plot: {param_latex_label}", fontsize=15)
-        ax.set_xlabel(f"Iteration : {num_samples})", fontsize=12)
+        ax.set_xlabel(f"Iteration : {num_samples}", fontsize=12)
         ax.set_ylabel("Sampled Value", fontsize=12)
         ax.grid(True, linestyle=':', alpha=0.6) # Seaborn 스타일에 따라 격자 자동 적용될 수 있음
         ax.set_ylim(param_series.min() - 0.1 * (param_series.max() - param_series.min()), 

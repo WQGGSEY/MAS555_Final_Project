@@ -512,6 +512,9 @@ def main():
         lower_bound = np.percentile(posterior_samples, 2.5)
         upper_bound = np.percentile(posterior_samples, 97.5)
         print(f"{param_info['label']} 95% Credible Interval: [{lower_bound:.4f}, {upper_bound:.4f}]")
+        # Printing the expected value (mean) for each parameter
+        expected_value = np.mean(posterior_samples)
+        print(f"Expected value of {param_info['label']}: {expected_value:.4f}")
     print("="*80)
     print("Add-hoc beta dictionary:")
     print(ad_hoc_beta_dict)

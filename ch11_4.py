@@ -292,28 +292,8 @@ def plot_variables(sample_dict: dict):
         plt.close(fig) # 메모리 해제를 위해 현재 그림 닫기)
 
 def calculate_ess(series, max_lag_prop=0.5):
-    """
-    자기상관 함수(ACF)를 사용하여 유효 표본 크기(ESS)를 계산합니다.
-    Geyer's initial positive sequence 합계를 사용하여 견고성을 높이려 시도합니다.
-
-    Args:
-        series (np.ndarray or pd.Series): 단일 파라미터에 대한 MCMC 샘플의 시계열.
-        max_lag_prop (float): ACF 계산 시 고려할 최대 시차(lag) 비율 (시리즈 길이에 대한).
-                              매우 큰 시차에서의 노이즈가 많은 ACF 추정을 피하는 데 도움을 줍니다.
-
-    Returns:
-        float: 추정된 유효 표본 크기 (ESS).
-    """
     n = len(series)
-    if n < 4: # ACF 및 분산 계산을 위해 최소한의 샘플 필요
-        return float(n) # 매우 짧은 시리즈는 ESS를 N으로 간주하거나 1.0으로 처리
-
-    # 시리즈가 거의 상수 값인지 확인 (분산이 매우 작은 경우)
-    if np.var(series) < 1e-9:
-        return 1.0 # 상수 시리즈의 ESS는 1
     max_lag = min(n - 1, int(n * max_lag_prop))
-    if max_lag < 1: # 시차가 의미 없을 정도로 시리즈가 짧은 경우
-        return float(n)
 
     try:
         acf_vals = sm.tsa.stattools.acf(series, nlags=max_lag, fft=(n > 1000), alpha=None)
@@ -511,10 +491,10 @@ def main():
         posterior_samples = param_info["posterior"]
         lower_bound = np.percentile(posterior_samples, 2.5)
         upper_bound = np.percentile(posterior_samples, 97.5)
-        print(f"{param_info['label']} 95% Credible Interval: [{lower_bound:.4f}, {upper_bound:.4f}]")
+        print(f"{param_info['label']} Mean: {np.mean(posterior_samples):.4f}, Variance: {np.var(posterior_samples):.4f},",sep=' ')
+        print(f"95% Credible Interval: [{lower_bound:.4f}, {upper_bound:.4f}]")
         # Printing the expected value (mean) for each parameter
         expected_value = np.mean(posterior_samples)
-        print(f"Expected value of {param_info['label']}: {expected_value:.4f}")
     print("="*80)
     print("Add-hoc beta dictionary:")
     print(ad_hoc_beta_dict)

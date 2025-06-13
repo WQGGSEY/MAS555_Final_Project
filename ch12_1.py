@@ -231,9 +231,10 @@ def main():
     print("#"*80)
     for i in range(num_params):
         beta_i = sample_dict['beta'][40000::10, i]
+        print(f'Beta {i} Mean: {np.mean(beta_i):.4f}, Std: {np.std(beta_i):.4f}', end=' ')
         ci_lower = np.percentile(beta_i, 2.5)
         ci_upper = np.percentile(beta_i, 97.5)
-        print(f'Beta {i} 95% CI: [{ci_lower:.4f}, {ci_upper:.4f}]')
+        print(f'95% CI: [{ci_lower:.4f}, {ci_upper:.4f}]')
     print("#"*80)
     
     
